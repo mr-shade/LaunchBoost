@@ -2,6 +2,11 @@
 
 **LaunchBoost** is a sleek, responsive, and conversion-focused landing page template built for SaaS tools, startups, and mobile apps. Whether you're launching a new product or collecting early interest, LaunchBoost is optimized to turn visitors into users from day one.
 
+### 🔗 Quick Links
+
+- **Live Demo:** [launchboost.pages.dev](https://launchboost.pages.dev)
+- **Purchase:** [Get LaunchBoost on Gumroad](https://mrshade.gumroad.com/l/LaunchBoost)
+
 ---
 
 ### 🌟 Features
@@ -95,3 +100,5 @@ LaunchBoost/
 * **Solo License:** \$9 – For individual use
 * **Startup License:** \$29 – For teams and client work
 * **Unlimited License:** \$59 – Use in unlimited commercial projects
+
+**[Purchase Now on Gumroad](https://mrshade.gumroad.com/l/LaunchBoost)**

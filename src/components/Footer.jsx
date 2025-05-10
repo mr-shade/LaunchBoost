@@ -1,9 +1,14 @@
+import { motion } from 'framer-motion';
+import { FiExternalLink } from 'react-icons/fi';
+
 const Footer = () => {
   const navigation = {
     product: [
       { name: 'Features', href: '#features' },
       { name: 'Pricing', href: '#pricing' },
       { name: 'Testimonials', href: '#testimonials' },
+      { name: 'Demo', href: 'https://launchboost.pages.dev', external: true },
+      { name: 'Purchase', href: 'https://mrshade.gumroad.com/l/LaunchBoost', external: true },
     ],
     company: [
       { name: 'About', href: '#' },
@@ -54,7 +59,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white" aria-labelledby="footer-heading">
+    <footer className="bg-white dark:bg-dark-900" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -62,9 +67,12 @@ const Footer = () => {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-indigo-600">LaunchBoost</span>
+              <img src="/images/logo.svg" alt="LaunchBoost Logo" className="h-10 w-10 mr-2" />
+              <span className="text-2xl font-display font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                LaunchBoost
+              </span>
             </div>
-            <p className="text-gray-500 text-base">
+            <p className="text-dark-500 dark:text-dark-400 text-base">
               Making the world a better place through sleek, conversion-optimized landing pages.
             </p>
             <div className="flex space-x-6">

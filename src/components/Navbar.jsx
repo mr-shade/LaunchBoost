@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiExternalLink } from 'react-icons/fi';
+import DarkModeToggle from './DarkModeToggle';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,6 +29,11 @@ const Navbar = () => {
     { name: 'Pricing', href: '#pricing' },
   ];
 
+  const externalLinks = [
+    { name: 'Demo', href: 'https://launchboost.pages.dev', external: true },
+    { name: 'Purchase', href: 'https://mrshade.gumroad.com/l/LaunchBoost', external: true },
+  ];
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -35,7 +41,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-soft'
+          ? 'bg-white/90 dark:bg-dark-900/90 backdrop-blur-md shadow-soft'
           : 'bg-transparent'
       }`}
     >
@@ -61,7 +67,7 @@ const Navbar = () => {
                 key={index}
                 href={link.href}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                  scrolled ? 'text-dark-600 hover:text-primary-600' : 'text-dark-700 hover:text-primary-500'
+                  scrolled ? 'text-dark-600 hover:text-primary-600 dark:text-dark-200 dark:hover:text-primary-400' : 'text-dark-700 hover:text-primary-500 dark:text-dark-200 dark:hover:text-primary-400'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -69,6 +75,28 @@ const Navbar = () => {
                 {link.name}
               </motion.a>
             ))}
+
+            {externalLinks.map((link, index) => (
+              <motion.a
+                key={`ext-${index}`}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center ${
+                  scrolled ? 'text-dark-600 hover:text-primary-600 dark:text-dark-200 dark:hover:text-primary-400' : 'text-dark-700 hover:text-primary-500 dark:text-dark-200 dark:hover:text-primary-400'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {link.name}
+                <FiExternalLink className="ml-1 h-3 w-3" />
+              </motion.a>
+            ))}
+
+            <div className="ml-2">
+              <DarkModeToggle />
+            </div>
+
             <motion.a
               href="#contact"
               className="ml-4 px-5 py-2.5 rounded-md text-sm font-medium bg-gradient-to-r from-primary-600 to-secondary-600 text-white shadow-md hover:shadow-lg transition-all duration-200"
@@ -80,11 +108,12 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-2">
+            <DarkModeToggle />
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${
-                scrolled ? 'text-dark-600 hover:text-primary-600' : 'text-dark-700 hover:text-primary-500'
+                scrolled ? 'text-dark-600 hover:text-primary-600 dark:text-dark-200 dark:hover:text-primary-400' : 'text-dark-700 hover:text-primary-500 dark:text-dark-200 dark:hover:text-primary-400'
               }`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -98,7 +127,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isMenuOpen && (
         <motion.div
-          className="md:hidden bg-white shadow-md"
+          className="md:hidden bg-white dark:bg-dark-900 shadow-md"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
@@ -109,13 +138,29 @@ const Navbar = () => {
               <motion.a
                 key={index}
                 href={link.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-dark-600 hover:text-primary-600 hover:bg-primary-50"
+                className="block px-3 py-2 rounded-md text-base font-medium text-dark-600 hover:text-primary-600 hover:bg-primary-50 dark:text-dark-200 dark:hover:text-primary-400 dark:hover:bg-dark-700"
                 whileHover={{ x: 5 }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
               </motion.a>
             ))}
+
+            {externalLinks.map((link, index) => (
+              <motion.a
+                key={`ext-${index}`}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-3 py-2 rounded-md text-base font-medium text-dark-600 hover:text-primary-600 hover:bg-primary-50 dark:text-dark-200 dark:hover:text-primary-400 dark:hover:bg-dark-700"
+                whileHover={{ x: 5 }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+                <FiExternalLink className="ml-1 h-4 w-4" />
+              </motion.a>
+            ))}
+
             <motion.a
               href="#contact"
               className="block px-3 py-2 rounded-md text-base font-medium bg-gradient-to-r from-primary-600 to-secondary-600 text-white"
