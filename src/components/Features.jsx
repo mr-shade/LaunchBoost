@@ -109,16 +109,19 @@ const Features = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="relative bg-white dark:bg-dark-800 rounded-xl shadow-soft overflow-hidden hover:shadow-strong transition-all duration-300"
+              className="relative bg-white dark:bg-dark-800 rounded-xl shadow-soft overflow-hidden hover:shadow-strong transition-all duration-300 group"
               variants={item}
               whileHover={{ y: -5 }}
             >
+              {/* Gradient border effect on hover */}
+              <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm bg-gradient-to-r ${feature.color}`}></div>
+
               <div className="p-6">
                 <div className={`inline-flex items-center justify-center h-12 w-12 rounded-lg bg-gradient-to-r ${feature.color} text-white mb-5`}>
                   <span className="text-xl">{feature.icon}</span>
                 </div>
-                <h3 className="text-xl font-bold text-dark-900 mb-3">{feature.title}</h3>
-                <p className="text-dark-500">{feature.description}</p>
+                <h3 className="text-xl font-bold text-dark-900 dark:text-white mb-3">{feature.title}</h3>
+                <p className="text-dark-500 dark:text-dark-300">{feature.description}</p>
               </div>
               <div className={`h-1.5 w-full bg-gradient-to-r ${feature.color}`}></div>
             </motion.div>

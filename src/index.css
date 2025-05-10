@@ -18,9 +18,20 @@ body {
 /* Dark mode styles */
 .dark {
   color-scheme: dark;
+  background-color: #0f172a;
 }
 
-/* Fix for text visibility in dark mode */
+/* Base text colors for dark mode */
+.dark {
+  --text-primary: 255, 255, 255;
+  --text-secondary: 229, 231, 235;
+  --text-tertiary: 209, 213, 219;
+  --bg-primary: 15, 23, 42;
+  --bg-secondary: 30, 41, 59;
+  --bg-tertiary: 51, 65, 85;
+}
+
+/* Force all text to be visible in dark mode */
 .dark h1,
 .dark h2,
 .dark h3,
@@ -30,42 +41,58 @@ body {
 .dark p,
 .dark span:not(.bg-clip-text),
 .dark li,
-.dark label,
-.dark input,
-.dark textarea {
-  color: var(--tw-text-opacity, 1);
-  color: rgb(var(--tw-text-opacity) * 255 var(--tw-text-opacity) * 255 var(--tw-text-opacity) * 255 / var(--tw-text-opacity));
+.dark label {
+  color: rgb(var(--text-primary));
 }
 
-/* Ensure text is visible in dark mode */
+.dark input,
+.dark textarea {
+  color: rgb(var(--text-primary));
+  background-color: rgb(var(--bg-secondary));
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Specific text color overrides for dark mode */
+.dark .text-dark-500:not(.bg-clip-text),
 .dark .text-dark-600:not(.bg-clip-text),
 .dark .text-dark-700:not(.bg-clip-text),
 .dark .text-dark-800:not(.bg-clip-text),
 .dark .text-dark-900:not(.bg-clip-text) {
-  color: rgb(229 231 235);
+  color: rgb(var(--text-secondary));
 }
 
+.dark .text-gray-400:not(.bg-clip-text),
 .dark .text-gray-500:not(.bg-clip-text),
 .dark .text-gray-600:not(.bg-clip-text),
 .dark .text-gray-700:not(.bg-clip-text),
 .dark .text-gray-800:not(.bg-clip-text),
 .dark .text-gray-900:not(.bg-clip-text) {
-  color: rgb(209 213 219);
+  color: rgb(var(--text-tertiary));
 }
 
-/* Ensure backgrounds have proper contrast in dark mode */
-.dark .bg-white {
-  background-color: rgb(17 24 39);
-}
-
-.dark .bg-dark-50 {
-  background-color: rgb(31 41 55);
-}
-
-/* Fix for card backgrounds in dark mode */
+/* Background color overrides for dark mode */
+.dark .bg-white,
 .dark .bg-gray-50,
 .dark .bg-gray-100 {
-  background-color: rgb(31 41 55);
+  background-color: rgb(var(--bg-primary));
+}
+
+.dark .bg-dark-50,
+.dark .bg-dark-100 {
+  background-color: rgb(var(--bg-secondary));
+}
+
+.dark .bg-dark-200 {
+  background-color: rgb(var(--bg-tertiary));
+}
+
+/* Fix for gradient backgrounds in dark mode */
+.dark .bg-gradient-to-b.from-white.to-primary-50 {
+  background: linear-gradient(to bottom, rgb(var(--bg-primary)), rgba(59, 130, 246, 0.05));
+}
+
+.dark .bg-gradient-to-b.from-primary-50.to-white {
+  background: linear-gradient(to bottom, rgba(59, 130, 246, 0.05), rgb(var(--bg-primary)));
 }
 
 /* Fix for gradient text in dark mode */
@@ -73,40 +100,58 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  background-image: linear-gradient(to right, #60a5fa, #a78bfa);
 }
 
 /* Fix for borders in dark mode */
 .dark .border-gray-100,
 .dark .border-gray-200,
-.dark .border-gray-300 {
-  border-color: rgb(55 65 81);
+.dark .border-gray-300,
+.dark .border-dark-100,
+.dark .border-dark-200,
+.dark .border-dark-300 {
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Fix for shadows in dark mode */
 .dark .shadow-soft,
 .dark .shadow-md,
 .dark .shadow-lg {
-  --tw-shadow-color: rgba(0, 0, 0, 0.25);
+  --tw-shadow-color: rgba(0, 0, 0, 0.5);
   --tw-shadow: var(--tw-shadow-colored);
 }
 
 /* Fix for buttons in dark mode */
 .dark .bg-primary-50,
 .dark .bg-primary-100 {
-  background-color: rgba(59, 130, 246, 0.1);
+  background-color: rgba(59, 130, 246, 0.15);
 }
 
 .dark .bg-secondary-50,
 .dark .bg-secondary-100 {
-  background-color: rgba(139, 92, 246, 0.1);
+  background-color: rgba(139, 92, 246, 0.15);
 }
 
 .dark .bg-accent-50,
 .dark .bg-accent-100 {
-  background-color: rgba(249, 115, 22, 0.1);
+  background-color: rgba(249, 115, 22, 0.15);
 }
 
 /* Fix for testimonial cards */
-.dark .bg-white-80 {
-  background-color: rgba(31, 41, 55, 0.8);
+.dark .bg-white-80,
+.dark .bg-white\/80 {
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+/* Fix for hero section */
+.dark .from-white.to-primary-50 {
+  --tw-gradient-from: rgb(var(--bg-primary));
+  --tw-gradient-to: rgba(59, 130, 246, 0.05);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+/* Fix for floating elements in dark mode */
+.dark .absolute.bg-white {
+  background-color: rgb(30, 41, 59);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }

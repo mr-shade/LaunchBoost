@@ -161,7 +161,7 @@ const Pricing = () => {
                   className={`mt-8 block w-full py-3.5 px-6 border border-transparent rounded-lg text-center font-medium ${
                     plan.highlighted
                       ? `text-white bg-gradient-to-r ${plan.color} shadow-md hover:shadow-lg`
-                      : "text-dark-700 bg-dark-100 hover:bg-dark-200"
+                      : "text-dark-700 dark:text-dark-300 bg-dark-100 dark:bg-dark-700 hover:bg-dark-200 dark:hover:bg-dark-600"
                   } transition-all duration-200`}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}

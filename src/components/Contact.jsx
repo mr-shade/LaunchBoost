@@ -28,7 +28,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative py-24 bg-gradient-to-b from-primary-50 to-white" id="contact">
+    <div className="relative py-24 bg-gradient-to-b from-primary-50 to-white dark:from-primary-900/20 dark:to-dark-950" id="contact">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-24 -left-24 w-96 h-96 opacity-10">
@@ -59,7 +59,7 @@ const Contact = () => {
           </motion.span>
 
           <motion.h2
-            className="mt-6 text-3xl font-display font-bold tracking-tight text-dark-900 sm:text-4xl"
+            className="mt-6 text-3xl font-display font-bold tracking-tight text-dark-900 dark:text-white sm:text-4xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -81,7 +81,7 @@ const Contact = () => {
 
         <div className="grid gap-8 lg:grid-cols-2">
           <motion.div
-            className="bg-white rounded-2xl shadow-soft p-8"
+            className="bg-white dark:bg-dark-800 rounded-2xl shadow-soft p-8"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -156,7 +156,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-dark-700 mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-dark-700 dark:text-dark-300 mb-1">
                     Message
                   </label>
                   <textarea
@@ -164,7 +164,7 @@ const Contact = () => {
                     name="message"
                     rows={4}
                     required
-                    className="w-full px-4 py-3 border border-dark-200 rounded-lg shadow-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    className="w-full px-4 py-3 border border-dark-200 dark:border-dark-600 dark:bg-dark-700 dark:text-white rounded-lg shadow-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     placeholder="How can we help you?"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -245,7 +245,7 @@ const Contact = () => {
 
                 <motion.button
                   type="submit"
-                  className="w-full flex items-center justify-center px-6 py-3.5 border border-white/20 rounded-lg text-primary-600 bg-white hover:bg-white/90 shadow-md hover:shadow-lg transition-all duration-200"
+                  className="w-full flex items-center justify-center px-6 py-3.5 border border-white/20 rounded-lg text-primary-700 bg-white hover:bg-white/90 shadow-md hover:shadow-lg transition-all duration-200 dark:text-primary-600 dark:border-white/20"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
