@@ -58,7 +58,7 @@ const Features = () => {
   };
 
   return (
-    <div className="py-24 bg-white" id="features">
+    <div className="py-24 bg-white dark:bg-dark-950" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center"
@@ -109,7 +109,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="relative bg-white rounded-xl shadow-soft overflow-hidden hover:shadow-strong transition-all duration-300"
+              className="relative bg-white dark:bg-dark-800 rounded-xl shadow-soft overflow-hidden hover:shadow-strong transition-all duration-300"
               variants={item}
               whileHover={{ y: -5 }}
             >

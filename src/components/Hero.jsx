@@ -28,7 +28,7 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
             >
               <motion.span
-                className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-primary-100 text-primary-800"
+                className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-300"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
@@ -38,7 +38,7 @@ const Hero = () => {
               </motion.span>
 
               <motion.h1
-                className="mt-6 text-4xl font-display font-extrabold tracking-tight text-dark-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl"
+                className="mt-6 text-4xl font-display font-extrabold tracking-tight text-dark-900 dark:text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
@@ -50,7 +50,7 @@ const Hero = () => {
               </motion.h1>
 
               <motion.p
-                className="mt-6 text-base text-dark-500 sm:text-lg md:text-xl"
+                className="mt-6 text-base text-dark-500 dark:text-dark-300 sm:text-lg md:text-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
@@ -78,7 +78,7 @@ const Hero = () => {
 
                 <motion.a
                   href="#features"
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-medium rounded-lg text-primary-700 bg-primary-50 hover:bg-primary-100 transition-all duration-200"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-medium rounded-lg text-primary-700 bg-primary-50 hover:bg-primary-100 dark:bg-primary-900/20 dark:text-primary-300 dark:hover:bg-primary-900/30 transition-all duration-200"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -102,8 +102,8 @@ const Hero = () => {
                     />
                   ))}
                 </div>
-                <div className="text-sm text-dark-500">
-                  <span className="font-medium text-primary-600">500+</span> happy customers
+                <div className="text-sm text-dark-500 dark:text-dark-300">
+                  <span className="font-medium text-primary-600 dark:text-primary-400">500+</span> happy customers
                 </div>
               </motion.div>
             </motion.div>
@@ -117,7 +117,7 @@ const Hero = () => {
           >
             <div className="relative mx-auto w-full rounded-lg shadow-xl lg:max-w-md">
               <motion.div
-                className="relative block w-full bg-white rounded-lg overflow-hidden shadow-soft"
+                className="relative block w-full bg-white dark:bg-dark-800 rounded-lg overflow-hidden shadow-soft"
                 whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
               >
                 <img
@@ -141,7 +141,7 @@ const Hero = () => {
 
               {/* Floating elements */}
               <motion.div
-                className="absolute -top-4 -right-4 bg-white rounded-lg shadow-soft p-3"
+                className="absolute -top-4 -right-4 bg-white dark:bg-dark-800 rounded-lg shadow-soft p-3"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
               >
@@ -152,14 +152,14 @@ const Hero = () => {
                     </div>
                   </div>
                   <div>
-                    <p className="text-xs font-medium text-dark-900">Conversion Rate</p>
+                    <p className="text-xs font-medium text-dark-900 dark:text-white">Conversion Rate</p>
                     <p className="text-sm font-bold text-green-600">+27.4%</p>
                   </div>
                 </div>
               </motion.div>
 
               <motion.div
-                className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-soft p-3"
+                className="absolute -bottom-4 -left-4 bg-white dark:bg-dark-800 rounded-lg shadow-soft p-3"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
               >
@@ -170,7 +170,7 @@ const Hero = () => {
                     </div>
                   </div>
                   <div>
-                    <p className="text-xs font-medium text-dark-900">New Signups</p>
+                    <p className="text-xs font-medium text-dark-900 dark:text-white">New Signups</p>
                     <p className="text-sm font-bold text-primary-600">+124</p>
                   </div>
                 </div>

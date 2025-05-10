@@ -6,6 +6,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;
 }
 
 body {
@@ -106,6 +107,6 @@ body {
 }
 
 /* Fix for testimonial cards */
-.dark .bg-white/80 {
+.dark .bg-white-80 {
   background-color: rgba(31, 41, 55, 0.8);
 }
