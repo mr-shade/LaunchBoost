@@ -156,7 +156,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-dark-700 dark:text-dark-300 mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-dark-700 mb-1">
                     Message
                   </label>
                   <textarea
@@ -164,7 +164,7 @@ const Contact = () => {
                     name="message"
                     rows={4}
                     required
-                    className="w-full px-4 py-3 border border-dark-200 dark:border-dark-600 dark:bg-dark-700 dark:text-white rounded-lg shadow-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    className="w-full px-4 py-3 border border-dark-200 rounded-lg shadow-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     placeholder="How can we help you?"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
