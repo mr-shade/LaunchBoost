@@ -67,7 +67,7 @@ const Navbar = () => {
                 key={index}
                 href={link.href}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                  scrolled ? 'text-dark-600 hover:text-primary-600 dark:text-dark-200 dark:hover:text-primary-400' : 'text-dark-700 hover:text-primary-500 dark:text-dark-200 dark:hover:text-primary-400'
+                  scrolled ? 'text-blue-950 hover:text-primary-600 dark:text-dark-200 dark:hover:text-primary-400' : 'text-dark-700 hover:text-primary-500 dark:text-dark-200 dark:hover:text-primary-400'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -83,7 +83,7 @@ const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center ${
-                  scrolled ? 'text-dark-600 hover:text-primary-600 dark:text-dark-200 dark:hover:text-primary-400' : 'text-dark-700 hover:text-primary-500 dark:text-dark-200 dark:hover:text-primary-400'
+                  scrolled ? 'text-blue-950 hover:text-primary-600 dark:text-dark-200 dark:hover:text-primary-400' : 'text-dark-700 hover:text-primary-500 dark:text-dark-200 dark:hover:text-primary-400'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -93,13 +93,15 @@ const Navbar = () => {
               </motion.a>
             ))}
 
-            <div className="ml-2">
+            {/* <div className="ml-2">
               <DarkModeToggle />
-            </div>
+            </div> */}
+
+            <div className="h-8 w-px bg-gray-300 dark:bg-gray-700 mx-2"></div>
 
             <motion.a
               href="#contact"
-              className="ml-4 px-5 py-2.5 rounded-md text-sm font-medium bg-gradient-to-r from-primary-600 to-secondary-600 text-white shadow-md hover:shadow-lg transition-all duration-200"
+              className="ml-4 px-5 py-2.5 rounded-md text-sm font-medium bg-gradient-to-r from-primary-600 to-secondary-600 text-blue-950 dark:text-blue-800 shadow-md hover:shadow-lg transition-all duration-200"
               whileHover={{ scale: 1.05, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
               whileTap={{ scale: 0.95 }}
             >
@@ -113,7 +115,7 @@ const Navbar = () => {
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${
-                scrolled ? 'text-dark-600 hover:text-primary-600 dark:text-dark-200 dark:hover:text-primary-400' : 'text-dark-700 hover:text-primary-500 dark:text-dark-200 dark:hover:text-primary-400'
+                scrolled ? 'text-dark-900 hover:text-primary-600 dark:text-dark-200 dark:hover:text-primary-400' : 'text-dark-700 hover:text-primary-500 dark:text-dark-200 dark:hover:text-primary-400'
               }`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
