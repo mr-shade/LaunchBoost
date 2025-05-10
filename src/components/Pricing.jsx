@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion';
+import { FiCheck, FiArrowRight } from 'react-icons/fi';
+
 const Pricing = () => {
   const plans = [
     {
@@ -14,6 +17,8 @@ const Pricing = () => {
       ],
       cta: "Get started",
       highlighted: false,
+      color: "from-primary-500 to-primary-600",
+      badge: null,
     },
     {
       name: "Professional",
@@ -31,6 +36,8 @@ const Pricing = () => {
       ],
       cta: "Get started",
       highlighted: true,
+      color: "from-primary-600 to-secondary-600",
+      badge: "Most Popular",
     },
     {
       name: "Enterprise",
@@ -50,73 +57,163 @@ const Pricing = () => {
       ],
       cta: "Contact sales",
       highlighted: false,
+      color: "from-secondary-500 to-secondary-600",
+      badge: null,
     },
   ];
 
-  return (
-    <div className="bg-gray-50 py-12 sm:py-16 lg:py-20" id="pricing">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">Pricing</h2>
-          <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-            Plans for businesses of all sizes
-          </p>
-          <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-            Choose the perfect plan for your needs. Always know what you'll pay.
-          </p>
-        </div>
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
 
-        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:grid-cols-3">
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  return (
+    <div className="py-24 bg-white" id="pricing">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.span
+            className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-accent-100 text-accent-800"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <span className="flex h-2 w-2 rounded-full bg-accent-600 mr-2"></span>
+            Simple Pricing
+          </motion.span>
+
+          <motion.h2
+            className="mt-6 text-3xl font-display font-bold tracking-tight text-dark-900 sm:text-4xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            Plans for <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">businesses of all sizes</span>
+          </motion.h2>
+
+          <motion.p
+            className="mt-4 max-w-2xl text-xl text-dark-500 mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+          >
+            Choose the perfect plan for your needs. Always know what you'll pay.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          className="mt-16 grid gap-8 lg:grid-cols-3"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           {plans.map((plan, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`${
+              className={`relative bg-white rounded-2xl overflow-hidden ${
                 plan.highlighted
-                  ? "border-2 border-indigo-600 shadow-xl"
-                  : "border border-gray-200"
-              } bg-white rounded-lg shadow-sm divide-y divide-gray-200`}
+                  ? "ring-4 ring-primary-600/20 shadow-strong"
+                  : "border border-gray-200 shadow-soft"
+              }`}
+              variants={item}
+              whileHover={{ y: -10, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
             >
-              <div className="p-6">
-                <h2 className="text-lg leading-6 font-medium text-gray-900">{plan.name}</h2>
-                <p className="mt-4 text-sm text-gray-500">{plan.description}</p>
-                <p className="mt-8">
-                  <span className="text-4xl font-extrabold text-gray-900">{plan.price}</span>
-                  <span className="text-base font-medium text-gray-500">{plan.period}</span>
-                </p>
-                <a
+              {plan.badge && (
+                <div className="absolute top-0 right-0 mt-4 mr-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                    {plan.badge}
+                  </span>
+                </div>
+              )}
+
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-dark-900">{plan.name}</h3>
+                <p className="mt-2 text-dark-500">{plan.description}</p>
+                <div className="mt-6 flex items-baseline">
+                  <span className="text-5xl font-display font-extrabold bg-gradient-to-r from-dark-800 to-dark-900 bg-clip-text text-transparent">
+                    {plan.price}
+                  </span>
+                  <span className="ml-1 text-xl text-dark-500">{plan.period}</span>
+                </div>
+
+                <motion.a
                   href="#contact"
-                  className={`${
+                  className={`mt-8 block w-full py-3.5 px-6 border border-transparent rounded-lg text-center font-medium ${
                     plan.highlighted
-                      ? "bg-indigo-600 hover:bg-indigo-700 text-white"
-                      : "bg-indigo-50 hover:bg-indigo-100 text-indigo-700"
-                  } mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium`}
+                      ? `text-white bg-gradient-to-r ${plan.color} shadow-md hover:shadow-lg`
+                      : "text-dark-700 bg-dark-100 hover:bg-dark-200"
+                  } transition-all duration-200`}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  {plan.cta}
-                </a>
+                  <span className="flex items-center justify-center">
+                    {plan.cta}
+                    {plan.highlighted && <FiArrowRight className="ml-2 -mr-1 h-5 w-5" />}
+                  </span>
+                </motion.a>
               </div>
-              <div className="pt-6 pb-8 px-6">
-                <h3 className="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h3>
+
+              <div className="px-8 pt-6 pb-8 bg-dark-50 border-t border-gray-100">
+                <h4 className="text-sm font-medium text-dark-900 uppercase tracking-wider">What's included</h4>
                 <ul className="mt-6 space-y-4">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex">
-                      <svg
-                        className="flex-shrink-0 h-6 w-6 text-green-500"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="ml-3 text-base text-gray-500">{feature}</span>
+                      <div className={`flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r ${plan.color} flex items-center justify-center text-white`}>
+                        <FiCheck className="h-4 w-4" />
+                      </div>
+                      <span className="ml-3 text-base text-dark-600">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+
+              {plan.highlighted && (
+                <div className={`h-1.5 w-full bg-gradient-to-r ${plan.color}`}></div>
+              )}
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        <motion.div
+          className="mt-16 bg-dark-50 rounded-2xl p-8 sm:p-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+        >
+          <div className="text-center">
+            <h3 className="text-xl font-bold text-dark-900">Need a custom plan?</h3>
+            <p className="mt-2 text-dark-500">Contact our sales team for a custom quote tailored to your specific needs.</p>
+            <motion.a
+              href="#contact"
+              className="mt-6 inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-primary-700 bg-primary-100 hover:bg-primary-200 transition-all duration-200"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Contact sales
+            </motion.a>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
