@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
@@ -13,4 +12,100 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+/* Dark mode styles */
+.dark {
+  color-scheme: dark;
+}
+
+/* Fix for text visibility in dark mode */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark p,
+.dark span:not(.bg-clip-text),
+.dark li,
+.dark label,
+.dark input,
+.dark textarea {
+  color: var(--tw-text-opacity, 1);
+  color: rgb(var(--tw-text-opacity) * 255 var(--tw-text-opacity) * 255 var(--tw-text-opacity) * 255 / var(--tw-text-opacity));
+}
+
+/* Ensure text is visible in dark mode */
+.dark .text-dark-600:not(.bg-clip-text),
+.dark .text-dark-700:not(.bg-clip-text),
+.dark .text-dark-800:not(.bg-clip-text),
+.dark .text-dark-900:not(.bg-clip-text) {
+  color: rgb(229 231 235);
+}
+
+.dark .text-gray-500:not(.bg-clip-text),
+.dark .text-gray-600:not(.bg-clip-text),
+.dark .text-gray-700:not(.bg-clip-text),
+.dark .text-gray-800:not(.bg-clip-text),
+.dark .text-gray-900:not(.bg-clip-text) {
+  color: rgb(209 213 219);
+}
+
+/* Ensure backgrounds have proper contrast in dark mode */
+.dark .bg-white {
+  background-color: rgb(17 24 39);
+}
+
+.dark .bg-dark-50 {
+  background-color: rgb(31 41 55);
+}
+
+/* Fix for card backgrounds in dark mode */
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  background-color: rgb(31 41 55);
+}
+
+/* Fix for gradient text in dark mode */
+.dark .bg-gradient-to-r.bg-clip-text.text-transparent {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Fix for borders in dark mode */
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300 {
+  border-color: rgb(55 65 81);
+}
+
+/* Fix for shadows in dark mode */
+.dark .shadow-soft,
+.dark .shadow-md,
+.dark .shadow-lg {
+  --tw-shadow-color: rgba(0, 0, 0, 0.25);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+/* Fix for buttons in dark mode */
+.dark .bg-primary-50,
+.dark .bg-primary-100 {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark .bg-secondary-50,
+.dark .bg-secondary-100 {
+  background-color: rgba(139, 92, 246, 0.1);
+}
+
+.dark .bg-accent-50,
+.dark .bg-accent-100 {
+  background-color: rgba(249, 115, 22, 0.1);
+}
+
+/* Fix for testimonial cards */
+.dark .bg-white/80 {
+  background-color: rgba(31, 41, 55, 0.8);
 }

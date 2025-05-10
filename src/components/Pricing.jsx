@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiCheck, FiArrowRight } from 'react-icons/fi';
+import { FiCheck, FiArrowRight, FiExternalLink } from 'react-icons/fi';
 
 const Pricing = () => {
   const plans = [
@@ -79,7 +79,7 @@ const Pricing = () => {
   };
 
   return (
-    <div className="py-24 bg-white" id="pricing">
+    <div className="py-24 bg-white dark:bg-dark-950" id="pricing">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center"
@@ -130,10 +130,10 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              className={`relative bg-white rounded-2xl overflow-hidden ${
+              className={`relative bg-white dark:bg-dark-900 rounded-2xl overflow-hidden ${
                 plan.highlighted
-                  ? "ring-4 ring-primary-600/20 shadow-strong"
-                  : "border border-gray-200 shadow-soft"
+                  ? "ring-4 ring-primary-600/20 dark:ring-primary-600/10 shadow-strong"
+                  : "border border-gray-200 dark:border-dark-700 shadow-soft"
               }`}
               variants={item}
               whileHover={{ y: -10, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
@@ -147,13 +147,13 @@ const Pricing = () => {
               )}
 
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-dark-900">{plan.name}</h3>
-                <p className="mt-2 text-dark-500">{plan.description}</p>
+                <h3 className="text-2xl font-bold text-dark-900 dark:text-white">{plan.name}</h3>
+                <p className="mt-2 text-dark-500 dark:text-dark-400">{plan.description}</p>
                 <div className="mt-6 flex items-baseline">
-                  <span className="text-5xl font-display font-extrabold bg-gradient-to-r from-dark-800 to-dark-900 bg-clip-text text-transparent">
+                  <span className="text-5xl font-display font-extrabold bg-gradient-to-r from-dark-800 to-dark-900 dark:from-white dark:to-dark-200 bg-clip-text text-transparent">
                     {plan.price}
                   </span>
-                  <span className="ml-1 text-xl text-dark-500">{plan.period}</span>
+                  <span className="ml-1 text-xl text-dark-500 dark:text-dark-400">{plan.period}</span>
                 </div>
 
                 <motion.a
@@ -173,15 +173,15 @@ const Pricing = () => {
                 </motion.a>
               </div>
 
-              <div className="px-8 pt-6 pb-8 bg-dark-50 border-t border-gray-100">
-                <h4 className="text-sm font-medium text-dark-900 uppercase tracking-wider">What's included</h4>
+              <div className="px-8 pt-6 pb-8 bg-dark-50 dark:bg-dark-800 border-t border-gray-100 dark:border-dark-700">
+                <h4 className="text-sm font-medium text-dark-900 dark:text-white uppercase tracking-wider">What's included</h4>
                 <ul className="mt-6 space-y-4">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex">
                       <div className={`flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r ${plan.color} flex items-center justify-center text-white`}>
                         <FiCheck className="h-4 w-4" />
                       </div>
-                      <span className="ml-3 text-base text-dark-600">{feature}</span>
+                      <span className="ml-3 text-base text-dark-600 dark:text-dark-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -195,23 +195,35 @@ const Pricing = () => {
         </motion.div>
 
         <motion.div
-          className="mt-16 bg-dark-50 rounded-2xl p-8 sm:p-10"
+          className="mt-16 bg-dark-50 dark:bg-dark-800 rounded-2xl p-8 sm:p-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
           <div className="text-center">
-            <h3 className="text-xl font-bold text-dark-900">Need a custom plan?</h3>
-            <p className="mt-2 text-dark-500">Contact our sales team for a custom quote tailored to your specific needs.</p>
-            <motion.a
-              href="#contact"
-              className="mt-6 inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-primary-700 bg-primary-100 hover:bg-primary-200 transition-all duration-200"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact sales
-            </motion.a>
+            <h3 className="text-xl font-bold text-dark-900 dark:text-dark-100">Need a custom plan?</h3>
+            <p className="mt-2 text-dark-500 dark:text-dark-400">Contact our sales team for a custom quote tailored to your specific needs.</p>
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+              <motion.a
+                href="#contact"
+                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-primary-700 bg-primary-100 hover:bg-primary-200 dark:bg-primary-900/20 dark:text-primary-300 dark:hover:bg-primary-900/30 transition-all duration-200"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Contact sales
+              </motion.a>
+              <motion.a
+                href="https://mrshade.gumroad.com/l/LaunchBoost"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 shadow-md hover:shadow-lg transition-all duration-200"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Purchase Now <FiExternalLink className="ml-2 h-4 w-4" />
+              </motion.a>
+            </div>
           </div>
         </motion.div>
       </div>

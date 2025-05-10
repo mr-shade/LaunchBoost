@@ -3,7 +3,7 @@ import { FiArrowRight } from 'react-icons/fi';
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-24 lg:pt-32 lg:pb-32 bg-gradient-to-b from-white to-primary-50" id="home">
+    <div className="relative overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-24 lg:pt-32 lg:pb-32 bg-gradient-to-b from-white to-primary-50 dark:from-dark-950 dark:to-primary-900/20" id="home">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <img
